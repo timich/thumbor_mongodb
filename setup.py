@@ -23,7 +23,7 @@ setup(
     classifiers = ['Development Status :: 4 - Beta',
                    'Intended Audience :: Developers',
                    'License :: OSI Approved :: MIT License',
-                   'Natural Language :: English',
+                   'Natural Language :: Thai',
                    'Operating System :: POSIX :: Linux',
                    'Programming Language :: Python :: 2.7',
                    'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
