@@ -19,3 +19,6 @@ Url should look like: http://thumbor-server.domain/unsafe/smart/1c6d2372252f4e18
 Upload by tc_mongodb `Location: /image/1c6d2372252f4e18a54112a589017441/image.ksh`
 where `1c6d2372252f4e18a54112a589017441` is `path` of file saved in GridFS
 
+Docker: https://github.com/lionants02/ThumborMongoDocker
+
+Git clone with `git clone -b Workwith_tc_mongodb https://github.com/lionants02/thumbor_mongodb.git`
