@@ -10,6 +10,7 @@
 import gridfs
 from pymongo import MongoClient
 from tornado.concurrent import return_future
+from datetime import datetime, timedelta
 
 
 def __conn__(self):
@@ -26,10 +27,16 @@ def __conn__(self):
 def load(self, path, callback):
     connection, db, storage = __conn__(self)
     stored = storage.find_one({'path': path})
-    if not stored:
+
+
+    if not stored or self.__is_expired(stored):
         callback(None)
         return
     fs = gridfs.GridFS(db)
     contents = fs.get(stored['file_id']).read()
     callback(str(contents))
 
+
+def __is_expired(self, stored):
+    timediff = datetime.now() - stored.get('created_at')
+    return timediff > timedelta(seconds=self.context.config.STORAGE_EXPIRATION_SECONDS)
