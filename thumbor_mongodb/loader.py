@@ -23,6 +23,10 @@ def __conn__(self):
     storage = db[self.config.MONGO_STORAGE_SERVER_COLLECTION]
     return connection, db, storage
 
+def __is_expired(self, stored):
+    timediff = datetime.now() - stored.get('created_at')
+    return timediff > timedelta(seconds=self.config.STORAGE_EXPIRATION_SECONDS)
+
 @return_future
 def load(self, path, callback):
     connection, db, storage = __conn__(self)
@@ -37,6 +41,3 @@ def load(self, path, callback):
     callback(str(contents))
 
 
-def __is_expired(self, stored):
-    timediff = datetime.now() - stored.get('created_at')
-    return timediff > timedelta(seconds=self.context.config.STORAGE_EXPIRATION_SECONDS)
