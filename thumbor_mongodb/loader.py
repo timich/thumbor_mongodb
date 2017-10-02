@@ -29,7 +29,7 @@ def load(self, path, callback):
     stored = storage.find_one({'path': path})
 
 
-    if not stored or __is_expired(stored):
+    if not stored or __is_expired(self,stored):
         callback(None)
         return
     fs = gridfs.GridFS(db)
