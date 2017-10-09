@@ -27,7 +27,7 @@ setup(
                    'Operating System :: POSIX :: Linux',
                    'Programming Language :: Python :: 2.7',
                    'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-                   'Topic :: Multimedia :: Graphics :: Presentation',
+                   'Topic :: Multimedia :: Graphics :: Presentation'
     ],
     package_dir = {"thumbor_mongodb": "thumbor_mongodb"},
     install_requires=["thumbor","pymongo"],
