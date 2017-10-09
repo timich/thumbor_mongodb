@@ -17,7 +17,7 @@ def __conn__(self):
     connection = MongoClient(
         self.config.MONGO_STORAGE_SERVER_HOST,
         self.config.MONGO_STORAGE_SERVER_PORT,
-        readPreference='primaryPreferred'
+        readPreference=self.config.MONGO_STORAGE_READ_PREFERENCE
     )
     db = connection[self.config.MONGO_STORAGE_SERVER_DB]
     storage = db[self.config.MONGO_STORAGE_SERVER_COLLECTION]
